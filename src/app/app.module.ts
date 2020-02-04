@@ -13,6 +13,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import { LunaService } from './services/luna.service';
 import { AppointmentListComponent } from './components/appointment-list/appointment-list.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -20,7 +21,8 @@ import { AppointmentListComponent } from './components/appointment-list/appointm
   declarations: [
     AppComponent,
     LoginComponent,
-    AppointmentListComponent
+    AppointmentListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
