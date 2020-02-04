@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
    */
   checkPin(pin: string){
     if(pin.length == 6){
-      console.log(typeof pin);
       this.lunaService.getToken(pin)
       .subscribe( (response) => {console.log(response.Token)})
     }

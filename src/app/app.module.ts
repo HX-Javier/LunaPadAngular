@@ -12,12 +12,15 @@ import {CardModule} from 'primeng/card';
 import {InputTextModule} from 'primeng/inputtext';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import { LunaService } from './services/luna.service';
+import { AppointmentListComponent } from './components/appointment-list/appointment-list.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    AppointmentListComponent
   ],
   imports: [
     BrowserModule,

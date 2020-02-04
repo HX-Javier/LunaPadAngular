@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {environment} from '../../environments/environment'
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Token } from '../models/token.model';
 import { Observable } from 'rxjs';
 
@@ -24,12 +24,23 @@ export class LunaService {
    * @param pin 
    */
   public getToken(pin:string){
-
-    
-
     return this.http.post<Token>(environment.apiUrl + '/Pad/Token', {Pin: pin} , this.httpOptions)
-    .pipe( catchError(this.handleError));
+    .pipe(
+      tap( res=> this.setSession(res.Token)), 
+      catchError(this.handleError)
+      );
   }
+
+  /**
+   * Store the token in local Storage
+   * @param token 
+   */
+  private setSession(token) {
+    localStorage.setItem('token', token);
+}     
+
+
+
 
   /**
    * Handle Http operation that failed.
