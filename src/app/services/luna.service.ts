@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {environment} from '../../environments/environment'
 import { catchError } from 'rxjs/operators';
-import { Token } from '../models/token.model';
+import { TokenResponse } from '../models/token-response.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -27,7 +27,7 @@ export class LunaService {
 
     
 
-    return this.http.post<Token>(environment.apiUrl + '/Pad/Token', {Pin: pin} , this.httpOptions)
+    return this.http.post<TokenResponse>(environment.apiUrl + '/Pad/Token', {Pin: pin} , this.httpOptions)
     .pipe( catchError(this.handleError));
   }
 
